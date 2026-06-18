@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Saskias Iserlohner Honig</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --green: #6b8e23;
+      --light-green: #cfe6a8;
+      --honey: #f2c14f;
+      --brown: #8b5a2b;
+      --cream: #fff9e9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: var(--cream);
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--light-green), var(--honey));
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      border-bottom: 4px solid var(--green);
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #304020;
+    }
+
+    .bee-badge {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.8);
+      color: var(--green);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    main {
+      max-width: 960px;
+      margin: 2rem auto 3rem;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.03);
+    }
+
+    section h2 {
+      margin-bottom: 1rem;
+      color: var(--brown);
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    section h2 span.icon {
+      font-size: 1.3rem;
+    }
+
+    .intro-text {
+      font-size: 1.05rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .origin {
+      border-left: 4px solid var(--green);
+      padding-left: 1rem;
+      margin-top: 0.8rem;
+      font-size: 0.98rem;
+      color: #3a4a2a;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1rem;
+    }
+
+    .badge {
+      font-size: 0.85rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      background: var(--light-green);
+      color: #304020;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .badge.honey {
+      background: var(--honey);
+      color: #5a3b00;
+    }
+
+    .product-card {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .product-jar {
+      flex: 1 1 220px;
+      min-width: 220px;
+      max-width: 260px;
+      height: 260px;
+      border-radius: 24px;
+      background: radial-gradient(circle at 30% 20%, #fff7d6, #f2c14f);
+      border: 3px solid var(--brown);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .product-jar::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 15%;
+      right: 15%;
+      height: 18%;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      border: 2px solid rgba(255,255,255,0.9);
+    }
+
+    .product-jar::after {
+      content: "Iserlohner Honig";
+      position: absolute;
+      bottom: 16%;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.3rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.9);
+      color: var(--brown);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .flower-strip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 26%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.0), rgba(255,255,255,0.9));
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-around;
+      padding: 0.4rem 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    .product-info {
+      flex: 2 1 260px;
+      min-width: 260px;
+    }
+
+    .price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin: 0.4rem 0 0.8rem;
+    }
+
+    .price span {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    .order-note {
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 0.6rem;
+    }
+
+    .highlight {
+      background: var(--light-green);
+      padding: 0.5rem 0.7rem;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.95rem;
+      color: #304020;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+    }
+
+    .contact-box {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      border: 1px solid rgba(0,0,0,0.05);
+      font-size: 0.96rem;
+    }
+
+    .contact-box strong {
+      color: var(--brown);
+    }
+
+    a {
+      color: var(--green);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    footer span {
+      color: var(--green);
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Saskias Iserlohner Honig</h1>
+    <p>Natürlich gewonnener Honig aus Iserlohn – von Hand geschleudert und liebevoll gerührt.</p>
+    <div class="bee-badge">🐝 Regional · Handarbeit · Mit Liebe im Glas</div>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2><span class="icon">🌼</span>Über meinen Honig</h2>
+      <p class="intro-text">
+        Mein Honig entsteht in Iserlohn – direkt aus den eigenen Völkern, mit viel Ruhe und Sorgfalt.
+        Jede Ernte wird von Hand geschleudert und schonend gerührt, damit die natürlichen Aromen
+        und wertvollen Inhaltsstoffe bestmöglich erhalten bleiben.
+      </p>
+      <p class="origin">
+        Der Honig wird in Iserlohn gewonnen, von Hand geschleudert und gerührt – kein Massenprodukt,
+        sondern echtes Handwerk im Einklang mit der Natur.
+      </p>
+      <div class="badges">
+        <span class="badge honey">100 % Honig – sonst nichts</span>
+        <span class="badge">Regional aus Iserlohn</span>
+        <span class="badge">Schonend verarbeitet</span>
+        <span class="badge">Blüten & Naturvielfalt</span>
+      </div>
+    </section>
+
+    <section id="product">
+      <h2><span class="icon">🍯</span>Honig im Glas</h2>
+      <div class="product-card">
+        <div class="product-jar" aria-hidden="true">
+          <div class="flower-strip">
+            <span>🌸</span>
+            <span>🌻</span>
+            <span>🌼</span>
+            <span>🌷</span>
+          </div>
+        </div>
+        <div class="product-info">
+          <p>
+            Der Honig wird nach der Ernte behutsam gerührt, bis er eine feine, streichzarte Konsistenz
+            erhält. So lässt er sich wunderbar aufs Brot streichen und eignet sich ebenso zum Süßen von
+            Tee, Müsli oder Joghurt.
+          </p>
+          <p class="price">
+            500 g Glas: 8,00 € <span>(inkl. liebevoller Handarbeit)</span>
+          </p>
+          <p class="order-note">
+            Aktuell ist der Honig direkt bei mir in Iserlohn erhältlich. Schreib mir einfach eine E‑Mail
+            oder melde dich für eine Abholung nach Vereinbarung.
+          </p>
+          <p class="highlight">
+            Auf Wunsch erzähle ich dir gern mehr über die Bienen, die Standorte und die jeweilige Ernte.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2><span class="icon">📬</span>Kontakt & Bestellung</h2>
+      <p class="intro-text">
+        Wenn du ein oder mehrere Gläser Honig bestellen möchtest oder Fragen hast, melde dich gern direkt bei mir:
+      </p>
+      <div class="contact-grid">
+        <div class="contact-box">
+          <strong>Adresse:</strong><br>
+          Saskia Osing<br>
+          Görresstraße 23<br>
+          58636 Iserlohn
+        </div>
+        <div class="contact-box">
+          <strong>E‑Mail:</strong><br>
+          <a href="mailto:s.osing@web.de">s.osing@web.de</a><br><br>
+          Schreib mir einfach, wie viele 500 g Gläser du möchtest – ich melde mich mit einer kurzen Bestätigung.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>🐝</span> Natürlich. Regional. Mit Herz geschleudert. – Saskias Iserlohner Honig
+  </footer>
+</body>
+</html>
+
